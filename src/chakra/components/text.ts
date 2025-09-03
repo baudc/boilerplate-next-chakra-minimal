@@ -1,9 +1,13 @@
-export const Text = {
+import { defineRecipe } from '@chakra-ui/react';
+
+export const Text = defineRecipe({
   variants: {
-    link: {
-      color: "blue.400",
-      textDecoration: "underline",
-      cursor: "pointer",
+    visual: {
+      link: {
+        color: 'blue.400',
+        textDecoration: 'underline',
+        cursor: 'pointer',
+      },
     },
   },
-};
+});

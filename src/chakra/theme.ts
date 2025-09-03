@@ -1,12 +1,30 @@
-import { ThemeConfig, extendTheme } from '@chakra-ui/react';
+import { createSystem, defaultConfig } from '@chakra-ui/react';
 import { colors } from './colors';
 import { fonts } from './fonts';
-import { styles } from './styles';
-import { components } from './components';
 
-const config: ThemeConfig = {
-  initialColorMode: 'dark',
-  useSystemColorMode: false,
-};
-
-export const theme = extendTheme({ colors, fonts, styles, components, config });
+export const system = createSystem(defaultConfig, {
+  theme: {
+    tokens: {
+      colors: {
+        ...Object.fromEntries(
+          Object.entries(colors).map(([key, value]) => [
+            key,
+            typeof value === 'object'
+              ? Object.fromEntries(
+                  Object.entries(value).map(([subKey, subValue]) => [
+                    subKey,
+                    { value: subValue },
+                  ])
+                )
+              : { value },
+          ])
+        ),
+      },
+      fonts: {
+        ...Object.fromEntries(
+          Object.entries(fonts).map(([key, value]) => [key, { value }])
+        ),
+      },
+    },
+  },
+});
