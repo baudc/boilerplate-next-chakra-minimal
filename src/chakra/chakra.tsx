@@ -1,11 +1,8 @@
-import { ReactNode } from "react";
-import { GetServerSideProps } from "next";
-import { theme } from "./theme";
-import { ChakraProvider } from "@chakra-ui/provider";
-import {
-  cookieStorageManagerSSR,
-  localStorageManager,
-} from "@chakra-ui/system";
+import { ReactNode } from 'react';
+import { GetServerSideProps } from 'next';
+import { theme } from './theme';
+import { ChakraProvider } from '@chakra-ui/react';
+import { cookieStorageManagerSSR, localStorageManager } from '@chakra-ui/react';
 
 type ChakraWrapperProps = {
   cookies?: string | string[] | undefined;
@@ -14,7 +11,7 @@ type ChakraWrapperProps = {
 
 export const Chakra = ({ cookies, children }: ChakraWrapperProps) => {
   const colorModeManager =
-    typeof cookies === "string"
+    typeof cookies === 'string'
       ? cookieStorageManagerSSR(cookies)
       : localStorageManager;
 
@@ -29,7 +26,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   return {
     props: {
       // first time no cookies set and may return undefined
-      cookies: req.headers.cookie ?? "",
+      cookies: req.headers.cookie ?? '',
     },
   };
 };
