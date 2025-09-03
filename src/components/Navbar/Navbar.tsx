@@ -1,7 +1,7 @@
-import { Flex } from "@chakra-ui/react";
-import { Brand } from "@/components/Navbar/Brand";
-import { Menu } from "./Menu/Menu";
-import { DarkModeSwitch } from "../DarkModeSwitch";
+import { Flex } from '@chakra-ui/react';
+import { Brand } from '@/components/Navbar/Brand';
+import { Menu } from './Menu/Menu';
+import { DarkModeSwitch } from '../ui/DarkModeSwitch';
 
 export const Navbar = () => {
   return (
@@ -10,7 +10,7 @@ export const Navbar = () => {
       padding="6px 20px"
       height="48px"
       alignItems="center"
-      justifyContent={{ md: "space-between" }}
+      justifyContent={{ md: 'space-between' }}
     >
       <Brand />
       <Flex>
