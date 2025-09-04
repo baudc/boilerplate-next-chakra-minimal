@@ -10,7 +10,7 @@ export const Navbar = () => {
     <Flex
       alignItems="center"
       backdropFilter="blur(12px)"
-      bg="rgba(255, 255, 255, 0.15)"
+      bg="rgba(255, 255, 255, 0.1)"
       border="1px solid rgba(255, 255, 255, 0.3)"
       borderRadius="2xl"
       boxShadow="lg"
