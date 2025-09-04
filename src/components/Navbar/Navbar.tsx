@@ -17,7 +17,7 @@ export const Navbar = () => {
       height="60px"
       justifyContent={{ md: 'space-between' }}
       left="50%"
-      padding="6px 20px"
+      padding="1rem 2rem"
       position="fixed"
       top="60px"
       transform="translateX(-50%)"

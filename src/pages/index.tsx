@@ -1,4 +1,4 @@
-import { Flex, Heading } from '@chakra-ui/react';
+import { Heading, VStack } from '@chakra-ui/react';
 import Head from 'next/head';
 
 export default function Home() {
@@ -11,9 +11,32 @@ export default function Home() {
         <link href="/favicon.ico" rel="icon" />
       </Head>
 
-      <Flex align="center" direction="column" justify="center" mt="100px">
-        <Heading textAlign="center">Home</Heading>
-      </Flex>
+      <VStack height={'92vh'} justify="center">
+        <Heading as="h1" size="3xl" textAlign="center">
+          Welcome to the Emperor's
+        </Heading>
+        <Heading as="h1" size="3xl" textAlign="center">
+          Next.js + ChakraUI Boilerplate
+        </Heading>
+      </VStack>
+
+      <VStack height={'92vh'} justify="center">
+        <Heading as="h1" size="3xl" textAlign="center">
+          Lorem Ipsum,
+        </Heading>
+        <Heading as="h1" size="3xl" textAlign="center">
+          je code comme un champignon sous rhum
+        </Heading>
+      </VStack>
+
+      <VStack backgroundColor="gray.900" height={'92vh'} justify="center">
+        <Heading as="h1" size="3xl" textAlign="center">
+          Lorem Ipsum,
+        </Heading>
+        <Heading as="h1" size="3xl" textAlign="center">
+          mon CSS s'écroule et ça fait boom
+        </Heading>
+      </VStack>
     </>
   );
 }
