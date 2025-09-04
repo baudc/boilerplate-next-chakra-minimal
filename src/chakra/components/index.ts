@@ -1,6 +1,6 @@
-import { Button } from "./button";
-import { Text } from "./text";
-import { Link } from "./link";
+import { Button } from './button';
+import { Link } from './link';
+import { Text } from './text';
 
 export const components = {
   Button,

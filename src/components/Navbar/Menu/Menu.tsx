@@ -1,6 +1,6 @@
-import { Flex, HStack } from '@chakra-ui/react';
-
 import type { Route } from 'next';
+
+import { HStack } from '@chakra-ui/react';
 import Link from 'next/link';
 
 type NavItem<T extends string = string> = {
@@ -19,14 +19,14 @@ export const Menu = () => {
   return (
     <nav>
       <HStack
-        justify="center"
         align="center"
-        mr="20px"
         border="1px solid red"
         gap={8}
+        justify="center"
+        mr="20px"
       >
         {navItems.map((item) => (
-          <Link key={item.href} href={item.href}>
+          <Link href={item.href} key={item.href}>
             {item.label}
           </Link>
         ))}

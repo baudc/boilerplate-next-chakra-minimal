@@ -9,15 +9,20 @@ export const Navbar = () => {
   return (
     <Flex
       alignItems="center"
-      bg="gray.900"
-      border="1px solid grey"
+      backdropFilter="blur(12px)" // glass effect
+      bg="rgba(255, 255, 255, 0.15)" // transparent white
+      border="1px solid rgba(255, 255, 255, 0.3)" // subtle border
+      borderRadius="2xl"
+      boxShadow="lg"
       height="60px"
       justifyContent={{ md: 'space-between' }}
+      left="50%"
       padding="6px 20px"
       position="fixed"
-      rounded={12}
-      width="42%"
-      zIndex={100}
+      top="20px"
+      transform="translateX(-50%)"
+      width={{ base: '90%', md: '33%' }} // responsive width
+      zIndex="1000"
     >
       <Brand />
       <Menu />

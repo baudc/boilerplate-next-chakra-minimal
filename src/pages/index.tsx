@@ -1,5 +1,6 @@
 import { Flex, Heading } from '@chakra-ui/react';
 import Head from 'next/head';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -13,6 +14,12 @@ export default function Home() {
 
       <Flex align="center" direction="column" justify="center">
         <Heading textAlign="center">Home</Heading>
+        <Image
+          alt="Logo"
+          height={500}
+          src="/images/logo-google.png"
+          width={500}
+        />
       </Flex>
     </>
   );
