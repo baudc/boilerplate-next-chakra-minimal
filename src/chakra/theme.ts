@@ -1,4 +1,5 @@
 import { createSystem, defaultConfig } from '@chakra-ui/react';
+
 import { colors } from './colors';
 import { fonts } from './fonts';
 
@@ -14,15 +15,15 @@ export const system = createSystem(defaultConfig, {
                   Object.entries(value).map(([subKey, subValue]) => [
                     subKey,
                     { value: subValue },
-                  ])
+                  ]),
                 )
               : { value },
-          ])
+          ]),
         ),
       },
       fonts: {
         ...Object.fromEntries(
-          Object.entries(fonts).map(([key, value]) => [key, { value }])
+          Object.entries(fonts).map(([key, value]) => [key, { value }]),
         ),
       },
     },
