@@ -18,13 +18,7 @@ export const navItems: NavItem<Route>[] = [
 export const Menu = () => {
   return (
     <nav>
-      <HStack
-        align="center"
-        border="1px solid red"
-        gap={8}
-        justify="center"
-        mr="20px"
-      >
+      <HStack align="center" gap={24} justify="center" mr="20px">
         {navItems.map((item) => (
           <Link href={item.href} key={item.href}>
             {item.label}

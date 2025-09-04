@@ -19,9 +19,9 @@ export const Navbar = () => {
       left="50%"
       padding="6px 20px"
       position="fixed"
-      top="20px"
+      top="60px"
       transform="translateX(-50%)"
-      width={{ base: '90%', md: '33%' }} // responsive width
+      width={{ base: '90%', md: '66%' }} // responsive width
       zIndex="1000"
     >
       <Brand />
