@@ -1,6 +1,7 @@
-import { AppProps } from 'next/app';
-import { Layout } from '@/components/Layout/Layout';
+import type { AppProps } from 'next/app';
+
 import { Provider } from '@/chakra/provider';
+import { Layout } from '@/components/Layout/Layout';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

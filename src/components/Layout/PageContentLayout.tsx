@@ -1,5 +1,5 @@
-import React from "react";
-import { Flex } from "@chakra-ui/react";
+import React from 'react';
+import { Flex } from '@chakra-ui/react';
 
 interface PageContentLayoutProps {
   children?: React.ReactNode;
@@ -12,9 +12,18 @@ const PageContentLayout: React.FC<PageContentLayoutProps> = ({
   maxWidth,
 }) => {
   return (
-    <Flex justify="center" p="16px 0px">
-      <Flex width="95%" justify="center" maxWidth={maxWidth || "860px"}>
-        <Flex direction="column" width={{ base: "100%", md: "65%" }}>
+    <Flex justify="center" p="16px 0px" border="1px solid red">
+      <Flex
+        width="95%"
+        justify="center"
+        maxWidth={maxWidth || '860px'}
+        border="1px solid blue"
+      >
+        <Flex
+          direction="column"
+          width={{ base: '100%', md: '65%' }}
+          border="1px solid yellow"
+        >
           {children}
         </Flex>
       </Flex>

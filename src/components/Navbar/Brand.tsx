@@ -1,5 +1,5 @@
-import { Flex } from "@chakra-ui/react";
+import { Flex, Text } from '@chakra-ui/react';
 
 export const Brand = () => {
-  return <Flex alignItems="center">Brand</Flex>;
+  return <Text>Brand</Text>;
 };

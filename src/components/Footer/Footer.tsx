@@ -1,8 +1,13 @@
-import { Flex } from "@chakra-ui/react";
+import { Flex } from '@chakra-ui/react';
 
 export const Footer = () => {
   return (
-    <Flex as="footer" py="6rem" className="footer">
+    <Flex
+      py="6rem"
+      bgColor="gray.900"
+      justifyContent="center"
+      alignItems="center"
+    >
       Footer
     </Flex>
   );

@@ -6,17 +6,20 @@ import { ColorModeButton } from '@/chakra/color-mode';
 export const Navbar = () => {
   return (
     <Flex
-      className="navbar"
+      position="fixed"
+      bg="gray.900"
+      border="1px solid grey"
+      rounded={12}
+      width="42%"
+      zIndex={100}
       padding="6px 20px"
-      height="48px"
+      height="60px"
       alignItems="center"
       justifyContent={{ md: 'space-between' }}
     >
       <Brand />
-      <Flex>
-        <Menu />
-        <ColorModeButton />
-      </Flex>
+      <Menu />
+      <ColorModeButton />
     </Flex>
   );
 };
