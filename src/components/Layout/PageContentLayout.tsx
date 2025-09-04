@@ -1,5 +1,4 @@
 import { Flex } from '@chakra-ui/react';
-import React from 'react';
 
 interface PageContentLayoutProps {
   children?: React.ReactNode;

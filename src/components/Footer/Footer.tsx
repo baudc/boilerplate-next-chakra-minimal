@@ -3,10 +3,10 @@ import { Flex } from '@chakra-ui/react';
 export const Footer = () => {
   return (
     <Flex
-      py="6rem"
+      alignItems="center"
       bgColor="gray.900"
       justifyContent="center"
-      alignItems="center"
+      py="6rem"
     >
       Footer
     </Flex>
