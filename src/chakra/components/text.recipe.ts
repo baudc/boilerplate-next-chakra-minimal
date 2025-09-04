@@ -1,6 +1,8 @@
 import { defineRecipe } from '@chakra-ui/react';
 
-export const Text = defineRecipe({
+import { getRecipeVariantKeys } from '@/utils/getRecipeVariantKeys';
+
+const TextRecipe = defineRecipe({
   variants: {
     visual: {
       link: {
@@ -11,3 +13,7 @@ export const Text = defineRecipe({
     },
   },
 });
+
+export const textVisuals = getRecipeVariantKeys(TextRecipe, 'visual');
+
+export default TextRecipe;

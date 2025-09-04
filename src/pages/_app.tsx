@@ -1,5 +1,9 @@
 import type { AppProps } from 'next/app';
 
+import '@fontsource/noto-sans/300.css';
+import '@fontsource/noto-sans/400.css';
+import '@fontsource/noto-sans/700.css';
+
 import { Provider } from '@/chakra/provider';
 import { Layout } from '@/components/Layout/Layout';
 

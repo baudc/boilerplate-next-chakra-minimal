@@ -9,16 +9,25 @@ type NavItem<T extends string = string> = {
 };
 
 export const navItems: NavItem<Route>[] = [
-  { href: '/', label: 'Home' },
-  { href: '/services', label: 'Services' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/about', label: 'About' },
+  // { href: '/', label: 'Home' },
+  // { href: '/services', label: 'Services' },
+  // { href: '/blog', label: 'Blog' },
+  // { href: '/about', label: 'About' },
 ];
 
 export const Menu = () => {
+  if (navItems.length === 0) {
+    return null;
+  }
+
   return (
     <nav>
-      <HStack align="center" gap={24} justify="center" mr="20px">
+      <HStack
+        align="center"
+        gap={{ mdDown: 8, md: 12, lg: 16 }}
+        justify="center"
+        mr="20px"
+      >
         {navItems.map((item) => (
           <Link href={item.href} key={item.href}>
             {item.label}

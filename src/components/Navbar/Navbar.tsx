@@ -12,16 +12,16 @@ export const Navbar = () => {
       backdropFilter="blur(12px)"
       bg="rgba(255, 255, 255, 0.1)"
       border="1px solid rgba(255, 255, 255, 0.3)"
-      borderRadius="2xl"
+      borderRadius={{ base: 'xl', md: '2xl' }}
       boxShadow="lg"
-      height="60px"
-      justifyContent={{ md: 'space-between' }}
+      height={{ base: '50px', md: '60px' }}
+      justifyContent={{ base: 'space-between', md: 'space-between' }}
       left="50%"
-      padding="1rem 2rem"
+      padding={{ base: '0.75rem 1rem', md: '1rem 2rem' }}
       position="fixed"
-      top="60px"
+      top={{ base: '20px', sm: '40px', md: '60px' }}
       transform="translateX(-50%)"
-      width={{ base: '90%', md: '66%' }}
+      width={{ base: '95%', sm: '90%', md: '75%', lg: '66%' }}
       zIndex="1000"
     >
       <Brand />

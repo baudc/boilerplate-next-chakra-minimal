@@ -1,5 +1,10 @@
-import { Heading, VStack } from '@chakra-ui/react';
+import { Box, Heading, Text, VStack } from '@chakra-ui/react';
 import Head from 'next/head';
+
+import { buttonVisuals } from '@/chakra/components/button.recipe';
+import { linkVisuals } from '@/chakra/components/link.recipe';
+import { textVisuals } from '@/chakra/components/text.recipe';
+import { Button, Link, StyledText, VariantGrid } from '@/components';
 
 export default function Home() {
   return (
@@ -11,31 +16,64 @@ export default function Home() {
         <link href="/favicon.ico" rel="icon" />
       </Head>
 
-      <VStack height={'92vh'} justify="center">
-        <Heading as="h1" size="3xl" textAlign="center">
-          Welcome to the Emperor's
-        </Heading>
-        <Heading as="h1" size="3xl" textAlign="center">
-          Next.js + ChakraUI Boilerplate
-        </Heading>
-      </VStack>
+      <VStack gap={16} minHeight="100vh" mt={100} p={12}>
+        <Box>
+          <Heading as="h1" mb={2} size="3xl" textAlign="center">
+            Welcome to the Emperor's
+          </Heading>
+          <Heading as="h1" mb={8} size="3xl" textAlign="center">
+            Component Library
+          </Heading>
+          <Text fontSize="lg" textAlign="center">
+            A showcase of all available components and their variants
+          </Text>
+        </Box>
 
-      <VStack height={'92vh'} justify="center">
-        <Heading as="h1" size="3xl" textAlign="center">
-          Lorem Ipsum,
-        </Heading>
-        <Heading as="h1" size="3xl" textAlign="center">
-          je code comme un champignon sous rhum
-        </Heading>
-      </VStack>
+        {/* Button Component Showcase */}
+        <Box as="section" width="100%">
+          <Heading as="h2" mb={8} size="xl" textAlign="center">
+            Buttons
+          </Heading>
+          <VariantGrid
+            render={(variant) => (
+              <Button visual={variant}>Button {variant}</Button>
+            )}
+            title="Visual Variants"
+            variants={buttonVisuals}
+          />
+        </Box>
 
-      <VStack backgroundColor="gray.900" height={'92vh'} justify="center">
-        <Heading as="h1" size="3xl" textAlign="center">
-          Lorem Ipsum,
-        </Heading>
-        <Heading as="h1" size="3xl" textAlign="center">
-          mon CSS s'écroule et ça fait boom
-        </Heading>
+        {/* Link Component Showcase */}
+        <Box as="section" width="100%">
+          <Heading as="h2" mb={8} size="xl" textAlign="center">
+            Links
+          </Heading>
+          <VariantGrid
+            render={(variant) => (
+              <Link href="#" visual={variant}>
+                Link {variant}
+              </Link>
+            )}
+            title="Visual Variants"
+            variants={linkVisuals}
+          />
+        </Box>
+
+        {/* Text Component Showcase */}
+        <Box as="section" width="100%">
+          <Heading as="h2" mb={8} size="xl" textAlign="center">
+            Text Elements
+          </Heading>
+          <VariantGrid
+            render={(variant) => (
+              <StyledText visual={variant}>
+                Text with {variant} variant
+              </StyledText>
+            )}
+            title="Visual Variants"
+            variants={textVisuals}
+          />
+        </Box>
       </VStack>
     </>
   );

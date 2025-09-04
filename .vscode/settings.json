@@ -3,5 +3,10 @@
     "source.fixAll.eslint": "explicit",
     "source.fixAll": "explicit"
   },
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "chat.mcp.serverSampling": {
+    "boilerplate-next-chakra-minimal/.vscode/mcp.json: chakra-ui": {
+      "allowedModels": ["copilot/claude-3.5-sonnet"]
+    }
+  }
 }

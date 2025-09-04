@@ -1,9 +1,9 @@
-import { Button } from './button';
-import { Link } from './link';
-import { Text } from './text';
+import ButtonRecipe from './button.recipe';
+import LinkRecipe from './link.recipe';
+import TextRecipe from './text.recipe';
 
 export const components = {
-  Button,
-  Text,
-  Link,
+  ButtonRecipe,
+  TextRecipe,
+  LinkRecipe,
 };
