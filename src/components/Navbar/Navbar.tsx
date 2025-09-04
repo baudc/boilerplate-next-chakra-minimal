@@ -9,9 +9,9 @@ export const Navbar = () => {
   return (
     <Flex
       alignItems="center"
-      backdropFilter="blur(12px)" // glass effect
-      bg="rgba(255, 255, 255, 0.15)" // transparent white
-      border="1px solid rgba(255, 255, 255, 0.3)" // subtle border
+      backdropFilter="blur(12px)"
+      bg="rgba(255, 255, 255, 0.15)"
+      border="1px solid rgba(255, 255, 255, 0.3)"
       borderRadius="2xl"
       boxShadow="lg"
       height="60px"
@@ -21,7 +21,7 @@ export const Navbar = () => {
       position="fixed"
       top="60px"
       transform="translateX(-50%)"
-      width={{ base: '90%', md: '66%' }} // responsive width
+      width={{ base: '90%', md: '66%' }}
       zIndex="1000"
     >
       <Brand />
