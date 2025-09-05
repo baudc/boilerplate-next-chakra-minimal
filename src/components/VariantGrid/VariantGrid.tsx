@@ -32,6 +32,7 @@ export const VariantGrid = <T extends string>({
             : undefined;
           return (
             <Box
+              bgColor={'bg.primary'}
               bgImage={bgUrl}
               borderWidth="1px"
               key={variant}

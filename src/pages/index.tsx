@@ -16,8 +16,15 @@ export default function Home() {
         <link href="/favicon.ico" rel="icon" />
       </Head>
 
-      <VStack gap={16} px={12}>
-        <VStack justifyContent={'center'} minHeight="92vh" width="100%">
+      <VStack
+        bgImage="radial-gradient(rgba(255,255,255,0.15) 1px, transparent 0)"
+        bgPos="0 0"
+        bgSize="32px 32px"
+        gap={16}
+        overflow={'auto'}
+        px={8}
+      >
+        <VStack justifyContent={'center'} minHeight="100vh" width="100%">
           <Heading as="h1" mb={2} size="3xl" textAlign="center">
             Welcome to the Emperor's
           </Heading>
@@ -56,7 +63,6 @@ export default function Home() {
             size="2xl"
             textTransform={'uppercase'}
           >
-            {' '}
             Links
           </Heading>
           <VariantGrid
