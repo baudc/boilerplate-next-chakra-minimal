@@ -5,7 +5,7 @@ import { getRecipeVariantKeys } from '@/utils/getRecipeVariantKeys';
 const ButtonRecipe = defineRecipe({
   base: {
     fontWeight: '500',
-    borderRadius: 'lg',
+    borderRadius: 'xl',
     transition: 'all 0.2s ease-in-out',
     _focus: {
       boxShadow: 'outline',
@@ -15,31 +15,82 @@ const ButtonRecipe = defineRecipe({
       cursor: 'not-allowed',
       _hover: { opacity: 0.6 },
     },
+    '&:hover': { transform: 'translateY(-2px)' },
+    '&:active': { transform: 'scale(0.97) translateY(0)', boxShadow: 'none' },
   },
   variants: {
     visual: {
-      solid: {
+      // SOLID
+      primary: {
         bg: 'primary.500',
         color: 'white',
         _hover: {
           bg: 'primary.600',
-          transform: 'translateY(-1px)',
           boxShadow: 'lg',
         },
         _active: {
           bg: 'primary.700',
-          transform: 'translateY(0)',
-          boxShadow: 'none',
         },
       },
-      glass: {
-        bg: 'rgba(255, 255, 255, 0.1)',
-        backdropFilter: 'blur(10px)',
-        border: '1px solid rgba(255, 255, 255, 0.2)',
+      secondary: {
+        bg: 'secondary.500',
         color: 'white',
         _hover: {
+          bg: 'secondary.600',
+          boxShadow: 'lg',
+        },
+        _active: {
+          bg: 'secondary.700',
+        },
+      },
+      danger: {
+        bg: 'red.500',
+        color: 'white',
+        _hover: {
+          bg: 'red.600',
+          boxShadow: 'lg',
+        },
+        _active: {
+          bg: 'red.700',
+        },
+      },
+      // SUBTLE
+      outline: {
+        bg: 'transparent',
+        border: '2px solid',
+        borderColor: 'primary.500',
+        color: 'primary.500',
+        _hover: {
+          bg: 'primary.50',
+          borderColor: 'primary.600',
+        },
+        _active: {
+          bg: 'primary.100',
+        },
+      },
+      ghost: {
+        bg: 'transparent',
+        color: 'primary.500',
+        _hover: {
+          bg: 'primary.50',
+        },
+        _active: {
+          bg: 'primary.100',
+        },
+      },
+      // GLASS
+      glass: {
+        bg: 'rgba(255, 255, 255, 0.07)',
+        backdropFilter: 'blur(12px)',
+        border: '1px solid rgba(255, 255, 255, 0.2)',
+        color: 'white',
+        shadow: `
+        0 4px 30px rgba(0, 0, 0, 0.15),   /* deep outer shadow */
+        0 0 15px rgba(255, 255, 255, 0.15), /* glowing outer highlight */
+        inset 0 0 6px rgba(255,255,255, 0.1) /* subtle inner depth */
+      `,
+        _hover: {
           bg: 'rgba(255, 255, 255, 0.2)',
-          transform: 'translateY(-1px)',
           boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
         },
       },
@@ -48,12 +99,17 @@ const ButtonRecipe = defineRecipe({
         backdropFilter: 'blur(10px)',
         border: '1px solid rgba(255, 255, 255, 0.1)',
         color: 'white',
+        shadow: `
+        0 4px 30px rgba(0, 0, 0, 0.15),   /* deep outer shadow */
+        0 0 15px rgba(255, 255, 255, 0.1), /* glowing outer highlight */
+        inset 0 0 6px rgba(255,255,255, 0.1) /* subtle inner depth */
+      `,
         _hover: {
           bg: 'rgba(0, 0, 0, 0.4)',
-          transform: 'translateY(-1px)',
           boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
         },
       },
+      // GRADIENT
       'gradient-blue': {
         position: 'relative',
         color: 'white',
@@ -73,7 +129,6 @@ const ButtonRecipe = defineRecipe({
           transition: 'opacity 0.2s ease',
         },
         '&:hover': {
-          transform: 'translateY(-2px)',
           boxShadow: '0 12px 24px -10px rgba(0, 0, 0, 0.2)',
           background: 'linear-gradient(135deg, #0ea5e9 0%, #7e22ce 100%)',
           _before: {
@@ -108,7 +163,6 @@ const ButtonRecipe = defineRecipe({
           transition: 'opacity 0.2s ease',
         },
         '&:hover': {
-          transform: 'translateY(-2px)',
           boxShadow: '0 12px 24px -10px rgba(0, 0, 0, 0.2)',
           background: 'linear-gradient(135deg, #a855f7 0%, #0369a1 100%)',
           _before: {
@@ -124,76 +178,7 @@ const ButtonRecipe = defineRecipe({
           },
         },
       },
-      secondary: {
-        bg: 'secondary.500',
-        color: 'white',
-        _hover: {
-          bg: 'secondary.600',
-          transform: 'translateY(-1px)',
-          boxShadow: 'lg',
-        },
-        _active: {
-          bg: 'secondary.700',
-          transform: 'translateY(0)',
-          boxShadow: 'none',
-        },
-      },
-      outline: {
-        bg: 'transparent',
-        border: '2px solid',
-        borderColor: 'primary.500',
-        color: 'primary.500',
-        _hover: {
-          bg: 'primary.50',
-          borderColor: 'primary.600',
-          transform: 'translateY(-1px)',
-        },
-        _active: {
-          bg: 'primary.100',
-          transform: 'translateY(0)',
-        },
-      },
-      ghost: {
-        bg: 'transparent',
-        color: 'primary.500',
-        _hover: {
-          bg: 'primary.50',
-          transform: 'translateY(-1px)',
-        },
-        _active: {
-          bg: 'primary.100',
-          transform: 'translateY(0)',
-        },
-      },
-      link: {
-        bg: 'transparent',
-        color: 'primary.500',
-        padding: 0,
-        height: 'auto',
-        lineHeight: 'normal',
-        verticalAlign: 'baseline',
-        _hover: {
-          textDecoration: 'underline',
-          color: 'primary.600',
-        },
-        _active: {
-          color: 'primary.700',
-        },
-      },
-      danger: {
-        bg: 'red.500',
-        color: 'white',
-        _hover: {
-          bg: 'red.600',
-          transform: 'translateY(-1px)',
-          boxShadow: 'lg',
-        },
-        _active: {
-          bg: 'red.700',
-          transform: 'translateY(0)',
-          boxShadow: 'none',
-        },
-      },
+      // SPECIAL
       oauth: {
         bg: 'white',
         border: '1px solid',
@@ -202,13 +187,10 @@ const ButtonRecipe = defineRecipe({
         fontWeight: '500',
         _hover: {
           bg: 'gray.50',
-          transform: 'translateY(-1px)',
           boxShadow: 'sm',
         },
         _active: {
           bg: 'gray.100',
-          transform: 'translateY(0)',
-          boxShadow: 'none',
         },
       },
     },
@@ -284,7 +266,7 @@ const ButtonRecipe = defineRecipe({
     },
   },
   defaultVariants: {
-    visual: 'solid',
+    visual: 'primary',
     size: 'md',
   },
 });

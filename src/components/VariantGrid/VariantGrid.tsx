@@ -1,4 +1,3 @@
-// components/VariantGrid.tsx
 import { Box, SimpleGrid, Text, VStack } from '@chakra-ui/react';
 
 type VariantGridProps<T extends string> = {
@@ -13,9 +12,10 @@ export const VariantGrid = <T extends string>({
   render,
 }: VariantGridProps<T>) => {
   return (
-    <VStack align={'center'} width="100%">
+    <VStack width="100%">
       {title && (
         <Text
+          alignSelf={'flex-start'}
           fontSize="xs"
           fontWeight="bold"
           letterSpacing={'widest'}
@@ -25,22 +25,25 @@ export const VariantGrid = <T extends string>({
           {title}
         </Text>
       )}
-      <SimpleGrid columns={Math.min(4, variants.length)} gap={12}>
-        {variants.map((variant) => (
-          <Box
-            borderWidth="1px"
-            key={variant}
-            p={4}
-            rounded="lg"
-            shadow="sm"
-            textAlign="center"
-          >
-            <Text fontWeight="medium" mb={3}>
-              {variant}
-            </Text>
-            {render(variant)}
-          </Box>
-        ))}
+      <SimpleGrid columns={Math.min(5, variants.length)} gap={12} width="100%">
+        {variants.map((variant) => {
+          const bgUrl = variant.includes('glass')
+            ? "url('https://picsum.photos/400/300.webp')"
+            : undefined;
+          return (
+            <Box
+              bgImage={bgUrl}
+              borderWidth="1px"
+              key={variant}
+              p={8}
+              rounded="lg"
+              shadow="sm"
+              textAlign="center"
+            >
+              {render(variant)}
+            </Box>
+          );
+        })}
       </SimpleGrid>
     </VStack>
   );

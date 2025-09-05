@@ -16,8 +16,8 @@ export default function Home() {
         <link href="/favicon.ico" rel="icon" />
       </Head>
 
-      <VStack gap={16} minHeight="100vh" mt={100} p={12}>
-        <Box>
+      <VStack gap={16} px={12}>
+        <VStack justifyContent={'center'} minHeight="92vh" width="100%">
           <Heading as="h1" mb={2} size="3xl" textAlign="center">
             Welcome to the Emperor's
           </Heading>
@@ -27,17 +27,21 @@ export default function Home() {
           <Text fontSize="lg" textAlign="center">
             A showcase of all available components and their variants
           </Text>
-        </Box>
+        </VStack>
 
         {/* Button Component Showcase */}
         <Box as="section" width="100%">
-          <Heading as="h2" mb={8} size="xl" textAlign="center">
+          <Heading
+            as="h2"
+            letterSpacing={'widest'}
+            mb={8}
+            size="2xl"
+            textTransform={'uppercase'}
+          >
             Buttons
           </Heading>
           <VariantGrid
-            render={(variant) => (
-              <Button visual={variant}>Button {variant}</Button>
-            )}
+            render={(variant) => <Button visual={variant}>{variant}</Button>}
             title="Visual Variants"
             variants={buttonVisuals}
           />
@@ -45,13 +49,20 @@ export default function Home() {
 
         {/* Link Component Showcase */}
         <Box as="section" width="100%">
-          <Heading as="h2" mb={8} size="xl" textAlign="center">
+          <Heading
+            as="h2"
+            letterSpacing={'widest'}
+            mb={8}
+            size="2xl"
+            textTransform={'uppercase'}
+          >
+            {' '}
             Links
           </Heading>
           <VariantGrid
             render={(variant) => (
               <Link href="#" visual={variant}>
-                Link {variant}
+                {variant}
               </Link>
             )}
             title="Visual Variants"
@@ -61,14 +72,18 @@ export default function Home() {
 
         {/* Text Component Showcase */}
         <Box as="section" width="100%">
-          <Heading as="h2" mb={8} size="xl" textAlign="center">
+          <Heading
+            as="h2"
+            letterSpacing={'widest'}
+            mb={8}
+            size="2xl"
+            textTransform={'uppercase'}
+          >
             Text Elements
           </Heading>
           <VariantGrid
             render={(variant) => (
-              <StyledText visual={variant}>
-                Text with {variant} variant
-              </StyledText>
+              <StyledText visual={variant}>Text {variant} variant</StyledText>
             )}
             title="Visual Variants"
             variants={textVisuals}
