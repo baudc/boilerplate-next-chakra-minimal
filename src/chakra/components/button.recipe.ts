@@ -2,14 +2,20 @@ import { defineRecipe } from '@chakra-ui/react';
 
 import { getRecipeVariantKeys } from '@/utils/getRecipeVariantKeys';
 
+const glassShadow = `0 4px 30px rgba(0,0,0,0.15), 0 0 15px rgba(255,255,255,0.07), inset 0 0 6px rgba(255,255,255,0.1)`;
+
 const ButtonRecipe = defineRecipe({
   base: {
+    // Common styles
     fontWeight: '500',
     borderRadius: 'xl',
     transition: 'all 0.2s ease-in-out',
-    _focus: {
-      boxShadow: 'outline',
-    },
+    // Responsive
+    maxW: { base: '100%', sm: '200px', md: '300px' },
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    // Interaction states
     _disabled: {
       opacity: 0.6,
       cursor: 'not-allowed',
@@ -83,12 +89,8 @@ const ButtonRecipe = defineRecipe({
         bg: 'rgba(255, 255, 255, 0.07)',
         backdropFilter: 'blur(12px)',
         border: '1px solid rgba(255, 255, 255, 0.2)',
-        color: 'white',
-        shadow: `
-        0 4px 30px rgba(0, 0, 0, 0.15),   /* deep outer shadow */
-        0 0 15px rgba(255, 255, 255, 0.15), /* glowing outer highlight */
-        inset 0 0 6px rgba(255,255,255, 0.1) /* subtle inner depth */
-      `,
+        color: 'black',
+        shadow: glassShadow,
         _hover: {
           bg: 'rgba(255, 255, 255, 0.2)',
           boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
@@ -99,11 +101,7 @@ const ButtonRecipe = defineRecipe({
         backdropFilter: 'blur(10px)',
         border: '1px solid rgba(255, 255, 255, 0.1)',
         color: 'white',
-        shadow: `
-        0 4px 30px rgba(0, 0, 0, 0.15),   /* deep outer shadow */
-        0 0 15px rgba(255, 255, 255, 0.1), /* glowing outer highlight */
-        inset 0 0 6px rgba(255,255,255, 0.1) /* subtle inner depth */
-      `,
+        shadow: glassShadow,
         _hover: {
           bg: 'rgba(0, 0, 0, 0.4)',
           boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
@@ -114,68 +112,15 @@ const ButtonRecipe = defineRecipe({
         position: 'relative',
         color: 'white',
         background: 'linear-gradient(135deg, #38bdf8 0%, #9333ea 100%)',
-        transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
         boxShadow: '0 1px 2px rgba(0, 0, 0, 0.1)',
-        _before: {
-          content: '""',
-          position: 'absolute',
-          inset: '-2px',
-          padding: '2px',
-          WebkitMask:
-            'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-          WebkitMaskComposite: 'xor',
-          maskComposite: 'exclude',
-          opacity: 0,
-          transition: 'opacity 0.2s ease',
-        },
         '&:hover': {
           boxShadow: '0 12px 24px -10px rgba(0, 0, 0, 0.2)',
           background: 'linear-gradient(135deg, #0ea5e9 0%, #7e22ce 100%)',
-          _before: {
-            opacity: 0.5,
-          },
         },
         '&:active': {
           transform: 'scale(0.95) translateY(0)',
           boxShadow: 'inset 0 1px 2px rgba(0, 0, 0, 0.2)',
           background: 'linear-gradient(135deg, #0284c7 0%, #6b21a8 100%)',
-          _before: {
-            opacity: 1,
-          },
-        },
-      },
-      'gradient-purple': {
-        position: 'relative',
-        color: 'white',
-        background: 'linear-gradient(135deg, #c084fc 0%, #0284c7 100%)',
-        transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
-        boxShadow: '0 1px 2px rgba(0, 0, 0, 0.1)',
-        _before: {
-          content: '""',
-          position: 'absolute',
-          inset: '-2px',
-          padding: '2px',
-          WebkitMask:
-            'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-          WebkitMaskComposite: 'xor',
-          maskComposite: 'exclude',
-          opacity: 0,
-          transition: 'opacity 0.2s ease',
-        },
-        '&:hover': {
-          boxShadow: '0 12px 24px -10px rgba(0, 0, 0, 0.2)',
-          background: 'linear-gradient(135deg, #a855f7 0%, #0369a1 100%)',
-          _before: {
-            opacity: 0.5,
-          },
-        },
-        '&:active': {
-          transform: 'scale(0.95) translateY(0)',
-          boxShadow: 'inset 0 1px 2px rgba(0, 0, 0, 0.2)',
-          background: 'linear-gradient(135deg, #9333ea 0%, #075985 100%)',
-          _before: {
-            opacity: 1,
-          },
         },
       },
       // SPECIAL
@@ -196,34 +141,34 @@ const ButtonRecipe = defineRecipe({
     },
     size: {
       xs: {
-        h: '8',
-        minW: '8',
-        fontSize: 'xs',
-        px: '3',
+        h: { base: '8', sm: '9' },
+        minW: { base: '8', sm: '9' },
+        px: { base: '3', sm: '4' },
+        fontSize: { base: 'xs', sm: 'sm' },
       },
       sm: {
-        h: '9',
-        minW: '9',
-        fontSize: 'sm',
-        px: '4',
+        h: { base: '9', md: '10' },
+        minW: { base: '9', md: '10' },
+        px: { base: '4', md: '6' },
+        fontSize: { base: 'sm', md: 'md' },
       },
       md: {
-        h: '10',
-        minW: '10',
-        fontSize: 'md',
-        px: '6',
+        h: { base: '10', lg: '12' },
+        minW: { base: '10', lg: '12' },
+        px: { base: '6', lg: '8' },
+        fontSize: { base: 'md', lg: 'lg' },
       },
       lg: {
-        h: '12',
-        minW: '12',
-        fontSize: 'lg',
-        px: '8',
+        h: { base: '12', xl: '14' },
+        minW: { base: '12', xl: '14' },
+        px: { base: '8', xl: '10' },
+        fontSize: { base: 'lg', xl: 'xl' },
       },
       xl: {
-        h: '14',
-        minW: '14',
-        fontSize: 'xl',
-        px: '10',
+        h: { base: '14', '2xl': '16' },
+        minW: { base: '14', '2xl': '16' },
+        px: { base: '10', '2xl': '12' },
+        fontSize: { base: 'xl', '2xl': '2xl' },
       },
     },
     rounded: {
@@ -234,6 +179,7 @@ const ButtonRecipe = defineRecipe({
     loading: {
       true: {
         position: 'relative',
+        pointerEvents: 'none', // disables click interactions
         cursor: 'progress',
         opacity: 0.8,
         _hover: { opacity: 0.8 },
@@ -258,10 +204,8 @@ const ButtonRecipe = defineRecipe({
         display: 'inline-flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '0',
-        '& > svg': {
-          margin: '0',
-        },
+        px: { base: '3', sm: '4' }, // responsive
+        '& > svg': { margin: 0 },
       },
     },
   },

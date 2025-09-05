@@ -1,4 +1,6 @@
-import { Box, SimpleGrid, Text, VStack } from '@chakra-ui/react';
+import { Box, SimpleGrid, VStack } from '@chakra-ui/react';
+
+import { Heading } from '../ui';
 
 type VariantGridProps<T extends string> = {
   render: (variant: T) => React.ReactNode;
@@ -14,29 +16,31 @@ export const VariantGrid = <T extends string>({
   return (
     <VStack width="100%">
       {title && (
-        <Text
-          alignSelf={'flex-start'}
-          fontSize="xs"
-          fontWeight="bold"
-          letterSpacing={'widest'}
-          mb={8}
-          textTransform={'uppercase'}
-        >
-          {title}
-        </Text>
+        <Heading alignSelf={'flex-start'} mb={8} role={'subsection'}>
+          {title.toLowerCase()}
+        </Heading>
       )}
-      <SimpleGrid columns={Math.min(5, variants.length)} gap={12} width="100%">
+      <SimpleGrid
+        columns={{
+          base: Math.min(2, variants.length),
+          md: Math.min(3, variants.length),
+          lg: Math.min(4, variants.length),
+          xl: Math.min(5, variants.length),
+          '2xl': Math.min(6, variants.length),
+        }}
+        gap={{ base: 4, sm: 6, xl: 12 }}
+        width="100%"
+      >
         {variants.map((variant) => {
-          const bgUrl = variant.includes('glass')
-            ? "url('https://picsum.photos/400/300.webp')"
-            : undefined;
           return (
             <Box
-              bgColor={'bg.primary'}
-              bgImage={bgUrl}
+              alignContent={'center'}
+              bgColor={'bg.secondary'}
               borderWidth="1px"
               key={variant}
-              p={8}
+              overflow="hidden"
+              px={{ base: 2 }}
+              py={{ base: 4 }}
               rounded="lg"
               shadow="sm"
               textAlign="center"

@@ -6,6 +6,11 @@ import { Brand } from '@/components/Navbar/Brand';
 import { Menu } from './Menu/Menu';
 
 export const Navbar = () => {
+  // const breakpoint = useBreakpointValue(
+  //   { base: 'base', sm: 'sm', md: 'md', lg: 'lg', xl: 'xl', '2xl': '2xl' },
+  //   { ssr: true },
+  // );
+
   return (
     <Flex
       alignItems="center"
@@ -29,6 +34,7 @@ export const Navbar = () => {
       zIndex="1000"
     >
       <Brand />
+      {/* <Text>bp: {breakpoint}</Text> */}
       <Menu />
       <ColorModeButton />
     </Flex>

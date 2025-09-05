@@ -1,10 +1,16 @@
-import { Box, Heading, Text, VStack } from '@chakra-ui/react';
+import { Box, Text, VStack } from '@chakra-ui/react';
 import Head from 'next/head';
 
 import { buttonVisuals } from '@/chakra/components/button.recipe';
-import { linkVisuals } from '@/chakra/components/link.recipe';
-import { textVisuals } from '@/chakra/components/text.recipe';
-import { Button, Link, StyledText, VariantGrid } from '@/components';
+import {
+  headingRole,
+  headingSize,
+  headingSpacing,
+  headingTransform,
+  headingWeight,
+} from '@/chakra/components/heading.recipe';
+import { Button, VariantGrid } from '@/components';
+import { Heading } from '@/components/ui/Heading';
 
 export default function Home() {
   return (
@@ -19,82 +25,84 @@ export default function Home() {
       <VStack
         bgImage="radial-gradient(rgba(255,255,255,0.15) 1px, transparent 0)"
         bgPos="0 0"
-        bgSize="32px 32px"
-        gap={16}
-        overflow={'auto'}
-        px={8}
+        bgSize="28px 28px"
       >
-        <VStack justifyContent={'center'} minHeight="100vh" width="100%">
-          <Heading as="h1" mb={2} size="3xl" textAlign="center">
-            Welcome to the Emperor's
-          </Heading>
-          <Heading as="h1" mb={8} size="3xl" textAlign="center">
+        <VStack
+          alignItems={'flex-start'}
+          justifyContent={'center'}
+          minHeight={{ base: '92vh', md: '100vh' }}
+          width={{ base: '90%', sm: '90%', md: '75%', lg: '66%' }}
+        >
+          <Heading weight="thin">Welcome to the Emperor's</Heading>
+          <Heading mb={12} weight="bold">
             Component Library
           </Heading>
-          <Text fontSize="lg" textAlign="center">
-            A showcase of all available components and their variants
+          <Text fontSize="  lg">
+            A showcase of all available components and their variants.
           </Text>
         </VStack>
 
-        {/* Button Component Showcase */}
-        <Box as="section" width="100%">
-          <Heading
-            as="h2"
-            letterSpacing={'widest'}
-            mb={8}
-            size="2xl"
-            textTransform={'uppercase'}
-          >
-            Buttons
-          </Heading>
-          <VariantGrid
-            render={(variant) => <Button visual={variant}>{variant}</Button>}
-            title="Visual Variants"
-            variants={buttonVisuals}
-          />
-        </Box>
+        <VStack
+          gap={{ base: 32, sm: 50, md: 64 }}
+          px={{ base: 4, sm: 8 }}
+          width="100%"
+        >
+          {/* Button Component Showcase */}
+          <Box width="100%">
+            <Heading mb={8} role={'sectionTitle'}>
+              Buttons
+            </Heading>
+            <VariantGrid
+              render={(variant) => <Button visual={variant}>{variant}</Button>}
+              title="Visual Variants"
+              variants={buttonVisuals}
+            />
+          </Box>
 
-        {/* Link Component Showcase */}
-        <Box as="section" width="100%">
-          <Heading
-            as="h2"
-            letterSpacing={'widest'}
-            mb={8}
-            size="2xl"
-            textTransform={'uppercase'}
-          >
-            Links
-          </Heading>
-          <VariantGrid
-            render={(variant) => (
-              <Link href="#" visual={variant}>
-                {variant}
-              </Link>
-            )}
-            title="Visual Variants"
-            variants={linkVisuals}
-          />
-        </Box>
-
-        {/* Text Component Showcase */}
-        <Box as="section" width="100%">
-          <Heading
-            as="h2"
-            letterSpacing={'widest'}
-            mb={8}
-            size="2xl"
-            textTransform={'uppercase'}
-          >
-            Text Elements
-          </Heading>
-          <VariantGrid
-            render={(variant) => (
-              <StyledText visual={variant}>Text {variant} variant</StyledText>
-            )}
-            title="Visual Variants"
-            variants={textVisuals}
-          />
-        </Box>
+          {/* Heading Component Showcase */}
+          <Box width="100%">
+            <Heading mb={8} role={'sectionTitle'}>
+              Headings
+            </Heading>
+            <VStack gap={16} width="100%">
+              <VariantGrid
+                render={(variant) => (
+                  <Heading role={variant}>{variant}</Heading>
+                )}
+                title="Role Variants"
+                variants={headingRole}
+              />
+              <VariantGrid
+                render={(variant) => (
+                  <Heading weight={variant}>{variant}</Heading>
+                )}
+                title="Weight Variants"
+                variants={headingWeight}
+              />
+              <VariantGrid
+                render={(variant) => (
+                  <Heading size={variant}>{variant}</Heading>
+                )}
+                title="Size Variants"
+                variants={headingSize}
+              />
+              <VariantGrid
+                render={(variant) => (
+                  <Heading spacing={variant}>{variant}</Heading>
+                )}
+                title="Spacing Variants"
+                variants={headingSpacing}
+              />
+              <VariantGrid
+                render={(variant) => (
+                  <Heading transform={variant}>{variant}</Heading>
+                )}
+                title="Transform Variants"
+                variants={headingTransform}
+              />
+            </VStack>
+          </Box>
+        </VStack>
       </VStack>
     </>
   );

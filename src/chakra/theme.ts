@@ -15,6 +15,7 @@ export const system = createSystem(defaultConfig, {
     },
     tokens: {
       colors: {
+        // Transform your colors into token format
         ...Object.fromEntries(
           Object.entries(colors).map(([key, value]) => [
             key,
@@ -29,6 +30,7 @@ export const system = createSystem(defaultConfig, {
           ]),
         ),
       },
+      // Fonts should be at the same level as colors, not nested inside
       fonts: {
         ...Object.fromEntries(
           Object.entries(fonts).map(([key, value]) => [key, { value }]),
@@ -37,49 +39,63 @@ export const system = createSystem(defaultConfig, {
     },
     semanticTokens: {
       colors: {
-        // Background colors
+        /* Background colors */
         'bg.primary': {
-          _light: { value: 'white' },
-          _dark: { value: 'black.500' },
+          value: {
+            base: '{colors.background.100}', // Light background
+            _dark: '{colors.background.900/33}', // Dark background
+          },
         },
         'bg.secondary': {
-          _light: { value: 'gray.50' },
-          _dark: { value: 'black.400' },
+          value: {
+            base: '{colors.background.200}',
+            _dark: '{colors.background.800/33}',
+          },
         },
-        'bg.subtle': {
-          _light: { value: 'gray.100' },
-          _dark: { value: 'black.300' },
-        },
-        // Text colors
+        /* Text colors */
         'text.primary': {
-          _light: { value: 'black.900' },
-          _dark: { value: 'white' },
+          value: {
+            base: '{colors.black.900}', // Dark text for light mode
+            _dark: '{colors.white.500}', // White text for dark mode
+          },
         },
         'text.secondary': {
-          _light: { value: 'black.700' },
-          _dark: { value: 'whiteAlpha.800' },
+          value: {
+            base: '{colors.black.700}',
+            _dark: '{colors.background.700}',
+          },
         },
         'text.subtle': {
-          _light: { value: 'black.500' },
-          _dark: { value: 'whiteAlpha.600' },
+          value: {
+            base: '{colors.black.500}',
+            _dark: '{colors.background.500}',
+          },
         },
-        // Accent colors
+        /* Accent colors */
         'accent.primary': {
-          _light: { value: 'blue.500' },
-          _dark: { value: 'blue.300' },
+          value: {
+            base: '{colors.primary.500}',
+            _dark: '{colors.primary.300}',
+          },
         },
         'accent.secondary': {
-          _light: { value: 'blue.600' },
-          _dark: { value: 'blue.200' },
+          value: {
+            base: '{colors.secondary.500}',
+            _dark: '{colors.secondary.300}',
+          },
         },
-        // Border colors
+        /* Border colors */
         'border.primary': {
-          _light: { value: 'gray.200' },
-          _dark: { value: 'whiteAlpha.300' },
+          value: {
+            base: '{colors.background.500}',
+            _dark: '{colors.background.600}',
+          },
         },
         'border.subtle': {
-          _light: { value: 'gray.100' },
-          _dark: { value: 'whiteAlpha.200' },
+          value: {
+            base: '{colors.background.300}',
+            _dark: '{colors.background.700}',
+          },
         },
       },
     },
